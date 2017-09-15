@@ -44,7 +44,7 @@ extendedKeyUsage = serverAuth
 HEREDOC
 
 read -p "Do you want SANs [Y/N]>" SAN
-if [ "$SAN" == "y" ]; then
+if [[ $SAN =~ ^[Yy]$ ]]; then
   echo "subjectAltName = @alt_names" >> openssl.cnf
   echo "[alt_names]" >> openssl.cnf
 
@@ -64,7 +64,7 @@ echo "Here's the settings:"
 cat openssl.cnf
 read -p "Is this OK [y/n]?" OK
 
-if [ "$OK" == "y" ]; then
+if [[ $OK =~ ^[Yy]$ ]]; then
   openssl genrsa -out private/$1.key 2048
   chmod 400 private/$1.key
   openssl req -config openssl.cnf -key private/$1.key -new -sha256 -out csr/$1.csr
