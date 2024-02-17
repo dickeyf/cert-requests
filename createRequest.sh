@@ -36,7 +36,13 @@ C = $COUNTRY
 ST = $STATE
 L = $CITY
 O = $ORG
-OU = $DIVISION
+HEREDOC
+
+if [[ ! -z "$DIVISION" ]]; then
+  echo "OU = $DIVISION" >> openssl.cnf
+fi
+
+cat <<HEREDOC >> openssl.cnf
 CN = $CN
 [v3_req]
 keyUsage = keyEncipherment, dataEncipherment
