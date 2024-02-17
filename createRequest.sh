@@ -26,8 +26,8 @@ read -p "State [Quebec]>" STATE
 export STATE=${STATE:-"Quebec"}
 read -p "City [Gatineau]>" CITY
 export CITY=${CITY:-"Gatineau"}
-read -p "Org [dickey.cloud]>" ORG
-export ORG=${ORG:-"dickey.cloud"}
+read -p "Org [ACME, INC]>" ORG
+export ORG=${ORG:-"ACME, INC"}
 read -p "Division>" DIVISION
 read -p "CN>" CN
 
